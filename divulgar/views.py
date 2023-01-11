@@ -25,8 +25,6 @@ def novo_pet(request):
         tags = request.POST.getlist('tags')
         raca = request.POST.get('raca')
 
-        # TODO: Validar dados
-
         if not foto:
             messages.add_message(request, constants.ERROR, 'Insira uma imagem do seu pet')
             return render(request, 'novo_pet.html', {'tags': all_tags, 'racas': all_racas})
