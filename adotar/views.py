@@ -13,7 +13,9 @@ def listar_pets(request):
             pets = pets.filter(cidade__icontains=cidade)
 
         if raca_filter:
-            pets = pets.filter(raca__id=raca_filter)
-            raca_filter = Raca.objects.get(id=raca_filter)
+            # zero é o valor do campo "Todas as Raças" no html
+            if raca_filter != "0":
+                pets = pets.filter(raca__id=raca_filter)
+                raca_filter = Raca.objects.get(id=raca_filter)
 
         return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas, 'cidade': cidade, 'raca_filter': raca_filter})
