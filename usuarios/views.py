@@ -45,8 +45,7 @@ def cadastro(request):
 
 def logar(request):
     if request.user.is_authenticated:
-        return HttpResponse('Usuario já está logado')
-        #return redirect('/divulgar/novo_pet')
+        return redirect('/divulgar/novo_pet')
 
     if request.method == "GET":
         return render(request, 'login.html')
@@ -59,8 +58,7 @@ def logar(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponse('Você está logado no adote')
-            #return redirect('/divulgar/novo_pet')
+            return redirect('/divulgar/novo_pet')
         else:
             messages.add_message(request, constants.ERROR, 'Usuário ou senha inválidos')
             return render(request, 'login.html')
