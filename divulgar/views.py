@@ -13,6 +13,9 @@ def novo_pet(request):
         return render(request, 'novo_pet.html', {'tags': tags, 'racas': racas})
 
     elif request.method == "POST":
+        all_tags = Tag.objects.all()
+        all_racas = Raca.objects.all()
+
         foto = request.FILES.get('foto')
         nome = request.POST.get('nome')
         descricao = request.POST.get('descricao')
@@ -23,6 +26,15 @@ def novo_pet(request):
         raca = request.POST.get('raca')
 
         # TODO: Validar dados
+
+        if not foto:
+            messages.add_message(request, constants.ERROR, 'Insira uma imagem do seu pet')
+            return render(request, 'novo_pet.html', {'tags': all_tags, 'racas': all_racas})
+
+        if len(nome.strip()) == 0 or len(descricao.strip()) == 0 or len(estado.strip()) == 0 or len(cidade.strip()) == 0 or len(telefone.strip()) == 0\
+                or not tags:
+            messages.add_message(request, constants.ERROR, 'Preencha todos os Campos')
+            return render(request, 'novo_pet.html', {'tags': all_tags, 'racas': all_racas})
 
         pet = Pet(
             usuario=request.user,
@@ -42,8 +54,7 @@ def novo_pet(request):
             pet.tags.add(tag)
 
         pet.save()
-        tags = Tag.objects.all()
-        racas = Raca.objects.all()
+
         messages.add_message(request, constants.SUCCESS, 'Novo pet cadastrado')
         return redirect('/divulgar/seus_pets')
         #return render(request, 'novo_pet.html', {'tags': tags, 'racas': racas})
