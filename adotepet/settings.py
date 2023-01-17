@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'adotepet.urls'
@@ -155,6 +156,5 @@ EMAIL_HOST= config('EMAIL_HOST')
 
 #CSRF
 CSRF_TRUSTED_ORIGINS = [
-    'adote-um-pet-production.up.railway.app',
-    'https://adote-um-pet-production.up.railway.app',
+    'https://adote-um-pet-production.up.railway.app'
 ]
