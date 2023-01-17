@@ -32,6 +32,17 @@ def listar_pets(request):
 def pedido_adocao(request, id_pet):
     pet = Pet.objects.filter(id=id_pet).filter(status='P')
 
+    #impedir que o proprio dono do pet tente adota-lo
+    if pet.first().usuario == request.user:
+        messages.add_message(request, constants.WARNING, 'Você não pode adotar seu próprio PET')
+        return redirect('/adotar')
+
+    #impedir repeticao de um mesmo pedido de adocao
+    pedidos_usuario_AG = PedidoAdocao.objects.filter(status='AG').filter(usuario=request.user)
+    if pedidos_usuario_AG:
+        messages.add_message(request, constants.WARNING, 'Você já fez um pedido de adoção deste PET, aguarde uma resposta do dono.')
+        return redirect('/adotar')
+
     if not pet.exists():
         messages.add_message(request, constants.WARNING, 'Esse Pet já foi adotado')
         return redirect('/adotar')
