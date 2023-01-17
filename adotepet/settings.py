@@ -154,7 +154,3 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_PORT= config('EMAIL_PORT')
 EMAIL_HOST= config('EMAIL_HOST')
 
-#CSRF
-CSRF_TRUSTED_ORIGINS = [
-    'https://adote-um-pet-production.up.railway.app'
-]
