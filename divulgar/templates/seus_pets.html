@@ -15,16 +15,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 bg-side sidebar">
-                    <h2>ADO.TE</h2>
-                    <hr>
-                    <br>
-                    <div class="row">
-                        <a href="{% url 'novo_pet' %}" class="btn btn-warning">Cadastrar Novo Pet</a>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <a href="{% url 'sair' %}" class="btn-custom-primary">Sair</a>
-                    </div>
+                    <h2>ADO.TE</h2> <br>
+
+                    <a class="btn btn-light col-12" href="/adotar/">Adotar um Pet</a><br><br>
+                    <a class="btn btn-primary col-12" href="/divulgar/novo_pet/">Divulgar Pet</a><br><br>
+                    <a class="btn btn-info col-12" href="/divulgar/seus_pets/">Seus pets</a><br><br>
+                    <a class="btn btn-success col-12" href="/divulgar/ver_pedido_adocao/">Solicitação de Pet</a><br><br>
+                    <a class="btn btn-danger col-12" href="/divulgar/dashboard/">Dashboard</a> <br> <br>
+                    <a class="btn btn-warning col-12" href="/auth/sair/">Sair</a>
+
                 </div>
 
                 <div class="col-md">
