@@ -120,7 +120,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, './templates/static'),)
 # STATIC_ROOT = os.path.join('static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -152,3 +152,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_PORT= config('EMAIL_PORT')
 EMAIL_HOST= config('EMAIL_HOST')
+
+#CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'adote-um-pet-production.up.railway.app',
+    'https://adote-um-pet-production.up.railway.app',
+]
