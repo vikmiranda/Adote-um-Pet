@@ -67,8 +67,8 @@ def processa_pedido_adocao(request, id_pedido):
     email = send_mail(
         'Sua adoção foi processada',
         string,
-        'joao_rpgames@hotmail.com',
-        [pedido.usuario.email, ],
+        "adote.pet.vikmiranda@outlook.com",
+        [pedido.usuario.email,],
     )
 
     messages.add_message(request, constants.SUCCESS, 'Pedido de adoção processado com sucesso')
