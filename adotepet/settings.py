@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-h&vv6aqf(-1ycfq5!%t8*u)530@b8$0_ig+@ibr1a10^rb6v$f
 DEBUG = False
 
 ALLOWED_HOSTS = ['adote-um-pet-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://adote-um-pet-production.up.railway.app', 'adote-um-pet-production.up.railway.app']
 
 
 # Application definition
