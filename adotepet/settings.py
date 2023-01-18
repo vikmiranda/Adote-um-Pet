@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-h&vv6aqf(-1ycfq5!%t8*u)530@b8$0_ig+@ibr1a10^rb6v$f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['adote-um-pet-production.up.railway.app']
+ALLOWED_HOSTS = ['adote-um-pet-production.up.railway.app', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://adote-um-pet-production.up.railway.app', 'adote-um-pet-production.up.railway.app']
 
 
@@ -48,13 +48,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'adotepet.urls'
